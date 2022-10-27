@@ -7,12 +7,15 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class StringAddCalculator {
-    public static final int DEFAULT = 0;
-    public static final String DELIMITER = ",|:";
+    private static final int DEFAULT_VALUE = 0;
+    private static final int MINIMUM = 0;
+    private static final String DELIMITER = ",|:";
+    private static final String SHOULD_POSITIVE_MESSAGE = "입력값은 양수여야 합니다";
+    private static final Pattern CUSTOM_PATTERN = Pattern.compile("//(.)\n(.*)");
 
     public static int splitAndSum(String input) {
         if (isEmpty(input)) {
-            return DEFAULT;
+            return DEFAULT_VALUE;
         }
 
         return sum(parse(split(input)));
@@ -27,7 +30,7 @@ public class StringAddCalculator {
     }
 
     private static String[] split(String input) {
-        Matcher m = Pattern.compile("//(.)\n(.*)").matcher(input);
+        Matcher m = CUSTOM_PATTERN.matcher(input);
         if (m.find()) {
             String customDelimiter = m.group(1);
             return m.group(2).split(customDelimiter);
@@ -49,15 +52,15 @@ public class StringAddCalculator {
     private static int toPositive(String input) {
         int value = Integer.parseInt(input);
 
-        if (value >= 0) {
+        if (value >= MINIMUM) {
             return value;
         }
 
-        throw new IllegalArgumentException("입력값은 양수여야 합니다");
+        throw new IllegalArgumentException(SHOULD_POSITIVE_MESSAGE);
     }
 
     private static int sum(List<Integer> numbers) {
         return numbers.stream()
-                .reduce(DEFAULT, (a, b) -> a + b);
+                .reduce(DEFAULT_VALUE, (a, b) -> a + b);
     }
 }
