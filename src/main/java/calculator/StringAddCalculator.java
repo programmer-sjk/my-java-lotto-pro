@@ -37,9 +37,23 @@ public class StringAddCalculator {
     }
 
     private static List<Integer> parse(String[] inputs) {
-        return Arrays.stream(inputs)
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
+        try {
+            return Arrays.stream(inputs)
+                    .map(StringAddCalculator::toPositive)
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    private static int toPositive(String input) {
+        int value = Integer.parseInt(input);
+
+        if (value >= 0) {
+            return value;
+        }
+
+        throw new IllegalArgumentException("입력값은 양수여야 합니다");
     }
 
     private static int sum(List<Integer> numbers) {
