@@ -1,5 +1,8 @@
 package lotto.domain;
 
+
+import lotto.domain.dto.StatisticDto;
+
 import java.util.List;
 import java.util.stream.Collectors;
 

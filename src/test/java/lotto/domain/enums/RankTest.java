@@ -1,5 +1,7 @@
-package lotto.domain;
+package lotto.domain.enums;
 
+import lotto.domain.dto.StatisticDto;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +11,7 @@ public class RankTest {
     @DisplayName("랭크 최소값과 비교할 수 있다")
     @Test
     void isBiggerThanMinimum_test() {
-        assertThat(Rank.isBiggerThanMinimum(2)).isFalse();
+        Assertions.assertThat(Rank.isBiggerThanMinimum(2)).isFalse();
         assertThat(Rank.isBiggerThanMinimum(3)).isTrue();
     }
 
