@@ -1,7 +1,7 @@
-package lotto.domain.enums;
+package lotto.domain;
 
 import lotto.domain.dto.StatisticDto;
-import org.assertj.core.api.Assertions;
+import lotto.domain.enums.Rank;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ public class RankTest {
     @DisplayName("랭크 최소값과 비교할 수 있다")
     @Test
     void isBiggerThanMinimum_test() {
-        Assertions.assertThat(Rank.isBiggerThanMinimum(2)).isFalse();
+        assertThat(Rank.isBiggerThanMinimum(2)).isFalse();
         assertThat(Rank.isBiggerThanMinimum(3)).isTrue();
     }
 
@@ -31,7 +31,7 @@ public class RankTest {
     @DisplayName("각 랭크의 가격을 알 수 있다")
     @Test
     void price_test() {
-        assertThat(Rank.FIRST.getPrice()).isEqualTo(2_000_000_000);
+        assertThat(Rank.FIRST.getPrice()).isEqualTo(new Money(2_000_000_000L));
     }
 
     @DisplayName("전체 랭크에 따른 수입을 계산할 수 있다")
