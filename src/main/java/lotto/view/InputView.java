@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class InputView {
     private static final String INVALID_NUMBER_MESSAGE = "입력값이 숫자가 아닙니다.";
+    private static final String WHITE_SPACE_REGEX_STRING = "\\s";
+    private static final String EMPTY = "";
+
+    private InputView() {}
 
     public static int getMoney() {
         OutputView.printGetMoney();
@@ -17,7 +21,7 @@ public class InputView {
 
     public static String getWiningNumber() {
         OutputView.printWinningNumber();
-        return read();
+        return read().replaceAll(WHITE_SPACE_REGEX_STRING, EMPTY);
     }
 
     private static String read() {
