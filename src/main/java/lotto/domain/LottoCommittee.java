@@ -1,7 +1,5 @@
 package lotto.domain;
 
-import lotto.domain.dto.StatisticDto;
-
 import java.util.List;
 
 public class LottoCommittee {
@@ -13,9 +11,7 @@ public class LottoCommittee {
 
     public StatisticDto statistics(List<LottoTicket> tickets) {
         StatisticDto dto = StatisticDto.create();
-        for (LottoTicket ticket : tickets) {
-            dto.add(countOfMatch(ticket));
-        }
+        tickets.forEach(ticket -> dto.add(countOfMatch(ticket)));
 
         return dto;
     }

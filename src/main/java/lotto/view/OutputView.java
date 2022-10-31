@@ -1,12 +1,12 @@
 package lotto.view;
 
 import lotto.domain.LottoTicket;
-import lotto.domain.enums.Rank;
-import lotto.domain.dto.StatisticDto;
+import lotto.domain.Rank;
+import lotto.domain.StatisticDto;
 
 import java.util.List;
 
-public class ResultView {
+public class OutputView {
     public static void printGetMoney() {
         System.out.println("구입금액을 입력해 주세요.");
     }

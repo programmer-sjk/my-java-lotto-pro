@@ -6,7 +6,7 @@ public class InputView {
     private static final String INVALID_NUMBER_MESSAGE = "입력값이 숫자가 아닙니다.";
 
     public static int getMoney() {
-        ResultView.printGetMoney();
+        OutputView.printGetMoney();
 
         try {
             return Integer.parseInt(read());
@@ -16,7 +16,7 @@ public class InputView {
     }
 
     public static String getWiningNumber() {
-        ResultView.printWinningNumber();
+        OutputView.printWinningNumber();
         return read();
     }
 

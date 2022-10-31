@@ -1,6 +1,7 @@
-package lotto.domain.dto;
+package lotto.domain;
 
-import lotto.domain.enums.Rank;
+import lotto.domain.StatisticDto;
+import lotto.domain.Rank;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
