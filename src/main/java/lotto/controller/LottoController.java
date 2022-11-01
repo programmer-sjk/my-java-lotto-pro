@@ -10,10 +10,10 @@ import java.util.List;
 public class LottoController {
     public void run() {
         Money money = new Money(InputView.getMoney());
-        Quantity quantity = new Quantity(InputView.getManualLottoCount());
+        Quantity manualQuantity = new Quantity(InputView.getManualLottoCount());
 
-        List<LottoTicket> tickets = LottoMarket.sell(money, InputView.getManualNumbers(quantity));
-        OutputView.printTickets(tickets);
+        List<LottoTicket> tickets = LottoMarket.sell(money, InputView.getManualNumbers(manualQuantity));
+        OutputView.printTickets(tickets, manualQuantity);
 
         showLottoResult(money, tickets);
     }
