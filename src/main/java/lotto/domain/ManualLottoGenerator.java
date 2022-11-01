@@ -18,4 +18,14 @@ public class ManualLottoGenerator implements LottoGenerator {
 
         return LottoTicket.create(lottoNumbers);
     }
+
+//    public List<LottoTicket> createMany(List<String> inputs) {
+//        List<LottoTicket> tickets = new ArrayList<>();
+//        for (String input : inputs) {
+//            List<Integer> numbers = ManualLottoGenerator.toNumbers(input);
+//            tickets.add(LottoTicket.create(convertLottoNumber(numbers)));
+//        }
+//
+//        return tickets;
+//    }
 }
