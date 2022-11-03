@@ -1,7 +1,9 @@
 package lotto.controller;
 
+import lotto.constant.Lotto;
 import lotto.domain.*;
 import lotto.domain.ManualLottoGenerator;
+import lotto.domain.RandomLottoGenerator;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -12,9 +14,10 @@ public class LottoController {
         Money money = new Money(InputView.getMoney());
         Quantity manualQuantity = new Quantity(InputView.getManualLottoCount());
 
-        List<LottoTicket> tickets = LottoMarket.sell(money, InputView.getManualNumbers(manualQuantity));
-        OutputView.printTickets(tickets, manualQuantity);
+        LottoMarket lottoMarket = new LottoMarket(new Money(Lotto.PRICE), new RandomLottoGenerator());
+        List<LottoTicket> tickets = lottoMarket.sell(money, InputView.getManualNumbers(manualQuantity));
 
+        OutputView.printTickets(tickets, manualQuantity);
         showLottoResult(money, tickets);
     }
 
